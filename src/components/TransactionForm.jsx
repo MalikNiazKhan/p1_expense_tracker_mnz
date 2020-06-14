@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState';
 
 
-export function TransactionForm() {
+export function TransactionForm({transactionType}) {
     
     const [transactionText, setTransactionText] = useState('');
     const [amount, setAmount] = useState(0);
@@ -15,29 +15,31 @@ export function TransactionForm() {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const newTransaction = {
-            id: maxId + 1,
-            text: transactionText,
-            amount: +amount
+        console.log(transactions);
+        
+        if(amount!=="0")
+        {
+            const newTransaction = {
+                id: maxId + 1,
+                text: transactionText.length>0?transactionText:"-",
+                amount: (transactionType==="I"?+amount:-1*amount),
+                type: transactionType
+            }
+            if(newTransaction.amount!==0)
+            {
+                addTransaction(newTransaction);
+            }
         }
-        addTransaction(newTransaction);
     }
 
     return (
-
-
         <>
-            <h3>Add new transaction</h3>
+            <h4>{transactionType==="I"?"Income Transaction":"Expense Transaction"}</h4>
             <form onSubmit={onSubmit}>
             <div className="form-control">
-                <label htmlFor="text">Text</label>
                 <input type="text" value={transactionText} onChange={(e)=>setTransactionText(e.target.value)} placeholder="Enter text..." />
             </div>
             <div className="form-control">
-                <label htmlFor="amount"
-                >Amount <br />
-                (negative - expense, positive - income)</label
-                >
                 <input type="number" value={amount} onChange={(e)=>setAmount(e.target.value)} placeholder="Enter amount..." />
             </div>
             <button className="btn">Add transaction</button>

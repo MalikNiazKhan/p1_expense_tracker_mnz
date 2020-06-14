@@ -5,14 +5,14 @@ export const Balance = () => {
     const {transactions} = useContext(GlobalContext)
 
     const allAmounts = transactions.map(transaction=>{return (transaction.amount)});
-    console.log(transactions);
+    // console.log(transactions);
     
     const totalAmount = allAmounts.reduce((total, curAmount)=>(total+=curAmount), 0).toFixed(2); 
 
     return (
-        <>
-            <h4>Your Balance</h4>
+        <div className="inc-exp-container">
+            <h1>Your Balance</h1>
             <h1>Rs. {totalAmount}</h1>
-        </>
+        </div>
     )
 }

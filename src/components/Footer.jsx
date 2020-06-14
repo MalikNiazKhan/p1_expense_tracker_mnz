@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+export const Footer = () => {
     const classes = useStyles();
 
     return (
@@ -22,7 +22,7 @@ export const Header = () => {
         <AppBar position="static">
           <Toolbar variant="dense">
             <Typography variant="h6" color="inherit">
-                <h4>Expense Tracker</h4>
+                    Bootcamp 2020 - First Project by Malik Niaz (Batch 35) 03369402929 
             </Typography>
           </Toolbar>
         </AppBar>

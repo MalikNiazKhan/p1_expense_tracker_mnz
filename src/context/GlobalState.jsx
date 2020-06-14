@@ -3,12 +3,18 @@ import AppReducer from './AppReducer';
 //Initail Global State
 const initialState = {
     transactions: [
-        {id:1, text: 'Salary',  amount:100000},
-        {id:2, text: 'Phone',   amount:  -40000},
-        {id:3, text: 'Books',   amount:   -3000},
-        {id:4, text: 'Camera',  amount:  -20000},
-        {id:5, text: 'Software sold', amount:200000}
+        {type: "I", id:1, text: 'Salary', amount:100000},
+        {type: "E", id:3, text: 'Books',  amount:-10000},
     ]
+    // income: [
+    //     {id:1, text: 'Salary',        amount:100000},
+    //     {id:2, text: 'Software sold', amount:200000}
+    // ],
+    // expenses: [
+    //     {id:1, text: 'Phone',   amount:  -40000},
+    //     {id:2, text: 'Books',   amount:   -3000},
+    //     {id:3, text: 'Camera',  amount:  -20000},
+    // ]
 }
 
 //Create Context
